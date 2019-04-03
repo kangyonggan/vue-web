@@ -31,6 +31,10 @@ const routers = [{
         title: '用户登录'
     },
     component: (resolve) => require(['./views/login.vue'], resolve)
+}, {
+    path: '/*',
+    name: '404',
+    component: (resolve) => require(['./views/error/404.vue'], resolve)
 }];
 
 export default routers;

@@ -8,7 +8,7 @@ const routers = [{
     component: (resolve) => layout(resolve),
     children: [
         {
-            path: 'index',
+            path: '',
             name: 'index',
             meta: {
                 title: '首页'

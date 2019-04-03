@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <router-view></router-view>
-    </div>
+    <router-view></router-view>
 </template>
 
 <script>
@@ -20,15 +18,27 @@
 </script>
 
 <style lang="less">
-    .size {
+    html, body {
         width: 100%;
         height: 100%;
-    }
-
-    html, body {
-        .size;
-        overflow: hidden;
         margin: 0;
         padding: 0;
+        font-size: 15px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .content {
+        width: 1288px;
+        margin: 0 auto;
     }
 </style>

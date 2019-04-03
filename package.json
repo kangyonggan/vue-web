@@ -4,8 +4,9 @@
     "description": "门户网站",
     "main": "index.js",
     "scripts": {
-        "init": "webpack --progress --config webpack.dev.config.js",
+        "init": "npm install",
         "dev": "webpack-dev-server --content-base ./ --open --inline --hot --compress --history-api-fallback --config webpack.dev.config.js --port=8888",
+        "mock": "webpack-dev-server --content-base ./ --open --inline --hot --compress --history-api-fallback --config webpack.mock.config.js --port=8888",
         "build": "webpack --progress --hide-modules --config webpack.prod.config.js",
         "lint": "eslint --fix --ext .js,.vue src"
     },
@@ -44,6 +45,7 @@
         "less-loader": "^2.2.3",
         "style-loader": "^0.19.1",
         "url-loader": "^0.6.2",
+        "mockjs": "^1.0.1-beta3",
         "vue-hot-reload-api": "^2.2.4",
         "vue-html-loader": "^1.2.3",
         "vue-loader": "^13.5.0",

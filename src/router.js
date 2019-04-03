@@ -1,5 +1,5 @@
 function layout(resolve) {
-    return require(['./views/layout.vue'], resolve);
+    return require(['./views/layout/index.vue'], resolve);
 }
 
 const routers = [{
@@ -10,9 +10,6 @@ const routers = [{
         {
             path: '',
             name: 'index',
-            meta: {
-                title: '首页'
-            },
             component: (resolve) => require(['./views/index.vue'], resolve)
         },
         {

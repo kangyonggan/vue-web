@@ -1,27 +1,30 @@
-<style scoped>
-    .index {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        text-align: center;
-    }
-</style>
 <template>
-    <div class="index">
-        门户网站
+    <div>
+        <h1>首页</h1>
+        <div>
+            <button @click="login">登录</button>
+            <button @click="article">文章列表</button>
+        </div>
     </div>
 </template>
+
 <script>
     export default {
         methods: {
-            handleStart() {
-                this.$Modal.info({
-                    title: 'Bravo',
-                    content: 'Now, enjoy the convenience of Vue.'
+            login: function () {
+                this.$router.push({
+                    name: 'login'
+                });
+            },
+            article: function () {
+                this.$router.push({
+                    name: 'article'
                 });
             }
         }
     };
 </script>
+
+<style scoped>
+
+</style>

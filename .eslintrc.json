@@ -18,6 +18,7 @@
         "no-console": ["warn"]
     },
     "globals": {
-        "Promise": true
+        "Promise": true,
+        "require": true
     }
 }

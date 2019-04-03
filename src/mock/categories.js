@@ -16,4 +16,4 @@ export default {
             categoryName: '关于我们'
         }]
     }
-}
+};

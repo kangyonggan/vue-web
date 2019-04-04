@@ -3,7 +3,7 @@ export default {
     respMsg: '成功',
     data: {
         categories: [{
-            categoryCode: 'index',
+            categoryCode: '',
             categoryName: '首页'
         }, {
             categoryCode: 'news',

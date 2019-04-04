@@ -3,16 +3,16 @@
         <div class="content">
             <ul class="category">
                 <li v-for="category in categories" :key="category.categoryCode">
-                    <AppLink :text="category.categoryName" :name="category.categoryCode"/>
+                    <router-link :to="'/' + category.categoryCode">{{category.categoryName}}</router-link>
                 </li>
             </ul>
 
             <ul class="user">
                 <li>
-                    <AppLink text="登录" name="login"/>
+                    <router-link to="/login">登录</router-link>
                 </li>
                 <li>
-                    <AppLink text="注册" name="register"/>
+                    <router-link to="/register">注册</router-link>
                 </li>
             </ul>
         </div>
@@ -49,6 +49,8 @@
         float: left;
 
         a {
+            color: #595959;
+            text-align: center;
             height: 58px;
             line-height: 58px;
             display: inline-block;

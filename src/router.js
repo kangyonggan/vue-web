@@ -21,6 +21,14 @@ const routers = [{
             component: (resolve) => require(['./views/news/index.vue'], resolve)
         },
         {
+            path: 'news/:newsId',
+            name: 'newsDetail',
+            meta: {
+                title: '详情'
+            },
+            component: (resolve) => require(['./views/news/detail.vue'], resolve)
+        },
+        {
             path: 'about',
             name: 'about',
             meta: {

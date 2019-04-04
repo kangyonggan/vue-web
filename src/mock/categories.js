@@ -9,9 +9,6 @@ export default {
             categoryCode: 'news',
             categoryName: '今日头条'
         }, {
-            categoryCode: 'recharge',
-            categoryName: '充值中心'
-        }, {
             categoryCode: 'about',
             categoryName: '关于我们'
         }]

@@ -5,6 +5,7 @@ import Vuex from 'vuex';
 import Util from './libs/util';
 import App from './app.vue';
 import './libs/http';
+import './components/index';
 import env from './config/env';
 
 if (env === 'mock') {

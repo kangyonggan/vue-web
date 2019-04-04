@@ -3,7 +3,16 @@
         <div class="content">
             <ul class="category">
                 <li v-for="category in categories" :key="category.categoryCode">
-                    <a href="javascript:">{{category.categoryName}}</a>
+                    <AppLink :text="category.categoryName" :name="category.categoryCode"/>
+                </li>
+            </ul>
+
+            <ul class="user">
+                <li>
+                    <AppLink text="登录" name="login"/>
+                </li>
+                <li>
+                    <AppLink text="注册" name="register"/>
                 </li>
             </ul>
         </div>
@@ -44,11 +53,30 @@
             line-height: 58px;
             display: inline-block;
             width: 90px;
-            text-align: center;
             border-bottom: 2px solid #f2f2f2;
 
             &:hover {
                 border-bottom: 2px solid #f60;
+            }
+        }
+    }
+
+    .user {
+        float: right;
+        li {
+            float: left;
+
+            a {
+                height: 58px;
+                line-height: 58px;
+                display: inline-block;
+                width: 70px;
+                text-align: center;
+                border-bottom: 2px solid #f2f2f2;
+
+                &:hover {
+                    border-bottom: 2px solid #f60;
+                }
             }
         }
     }

@@ -32,11 +32,6 @@
         list-style: none;
     }
 
-    a {
-        text-decoration: none;
-        color: #333;
-    }
-
     .content {
         width: 1288px;
         margin: 0 auto;

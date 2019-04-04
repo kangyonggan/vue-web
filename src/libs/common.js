@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import Http from '@/libs/http';
 
 // 定义全局方法
 Vue.prototype.error = error;

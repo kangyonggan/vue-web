@@ -27,8 +27,8 @@
             };
         },
         mounted() {
-            this.http.get('categories').then(data => {
-                this.categories = data.categories;
+            this.http.get('categories').then(res => {
+                this.categories = res.data.categories;
             }).catch(res => {
                 alert(res.respMsg);
             });

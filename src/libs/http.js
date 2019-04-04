@@ -48,7 +48,7 @@ class HttpRequest {
                 }
 
                 // 成功
-                return data.data;
+                return data;
             } else {
                 // 各种失败
                 return Promise.reject(data);

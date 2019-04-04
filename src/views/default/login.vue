@@ -1,7 +1,7 @@
 <template>
-    <AppForm action="login" :model="user" :rules="rules" @success="success">
-        <AppInput v-model="user.username" label="用户名" />
-        <AppInput v-model="user.password" label="密码" type="password"/>
+    <AppForm action="login" :model="user" :rules="rules" @success="handleSuccess">
+        <AppInput :model="user" prop="username" label="用户名"/>
+        <AppInput :model="user" prop="password" label="密码" type="password"/>
     </AppForm>
 </template>
 
@@ -9,11 +9,14 @@
     export default {
         data() {
             return {
-                user: {},
+                user: {
+                    username: 'admin',
+                    password: '11111111'
+                },
                 rules: {
                     username: [
                         {required: true, message: '用户名为必填项', trigger: 'blur'},
-                        {pattern: /^[a-zA-Z0-9]{5, 20}$/, message: '用户名由5至20位的字母或数字组成', trigger: 'blur'}
+                        {pattern: /^[a-zA-Z0-9]{5,20}$/, message: '用户名由5至20位的字母或数字组成', trigger: 'blur'}
                     ],
                     password: [
                         {required: true, message: '密码为必填项', trigger: 'blur'},
@@ -23,14 +26,12 @@
             };
         },
         methods: {
-            success: function (data) {
-                console.log(data);
-                console.log(this.user);
+            handleSuccess: function (data) {
+                this.success(data.respMsg);
             }
         }
     };
 </script>
 
 <style scoped>
-
 </style>

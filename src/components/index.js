@@ -1,8 +1,10 @@
 // 路由连接
-import './link';
+import './app-link';
 
 // 表单
-import './form';
+import './app-form';
 
 // 输入框
-import './input';
+import './app-input';
+
+

@@ -1,6 +1,6 @@
 <template>
     <AppForm action="login" :model="user" :rules="rules" @success="handleSuccess">
-        <AppInput :model="user" prop="username" label="用户名"/>
+        <AppInput :model="user" prop="account" label="用户名"/>
         <AppInput :model="user" prop="password" label="密码" type="password"/>
     </AppForm>
 </template>
@@ -10,11 +10,11 @@
         data() {
             return {
                 user: {
-                    username: 'admin',
+                    account: 'defaultUser',
                     password: '11111111'
                 },
                 rules: {
-                    username: [
+                    account: [
                         {required: true, message: '用户名为必填项', trigger: 'blur'},
                         {pattern: /^[a-zA-Z0-9]{5,20}$/, message: '用户名由5至20位的字母或数字组成', trigger: 'blur'}
                     ],

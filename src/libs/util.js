@@ -1,6 +1,15 @@
 import Cookies from 'js-cookie';
+import CryptoJS from 'crypto-js';
 
 let util = {};
+
+/**
+ * aes
+ *
+ * @type {string}
+ */
+util.AES_KEY = CryptoJS.enc.Latin1.parse('1234567812345678');
+util.AES_IV = CryptoJS.enc.Latin1.parse('1234567812345678');
 
 /**
  * 令牌存放在Cookie中的key
@@ -76,6 +85,41 @@ util.params = function (data) {
         }
     }
     return arr;
+};
+
+/**
+ * aes加密
+ *
+ * @param data
+ * @returns {string}
+ */
+util.encrypt = function (data) {
+    data = CryptoJS.AES.encrypt(JSON.stringify(data), util.AES_KEY, {
+        iv: util.AES_IV,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.ZeroPadding
+    }).toString();
+    return JSON.stringify(data);
+};
+
+/**
+ * aes解密
+ *
+ * @param data
+ * @returns {Object}
+ */
+util.decrypt = function (data) {
+    if (!data) {
+        return {};
+    }
+
+    let decrypted = CryptoJS.AES.decrypt(data, util.AES_KEY, {
+        iv: util.AES_IV,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.ZeroPadding
+    }).toString(CryptoJS.enc.Utf8);
+
+    return JSON.parse(decrypted);
 };
 
 export default util;

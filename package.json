@@ -18,8 +18,8 @@
     "license": "MIT",
     "dependencies": {
         "axios": "^0.15.3",
+        "crypto-js": "^3.1.9-1",
         "es6-promise": "^4.2.6",
-        "qs": "^6.7.0",
         "vue": "^2.5.2",
         "vue-router": "^3.0.1",
         "vuex": "^2.2.1",

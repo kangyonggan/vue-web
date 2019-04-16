@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Axios from 'axios';
 import Config from '@/config/config';
-import qs from 'qs';
 import Util from '@/libs/util';
 
 class HttpRequest {
@@ -27,8 +26,9 @@ class HttpRequest {
         instance.interceptors.request.use(config => {
             config.headers[Util.tokenKey] = Util.token();
             // 在发送请求之前做些什么
+
             if (config.data) {
-                config.data = qs.stringify(config.data, {indices: false});
+                config.data = Util.encrypt(config.data);
             }
 
             return config;
@@ -39,7 +39,7 @@ class HttpRequest {
 
         // 添加响应拦截器
         instance.interceptors.response.use((res) => {
-            let data = res.data || {};
+            let data = Util.decrypt(res.data);
             this.destroy(url);
             if (data.respCo === '0000') {
                 const token = res.headers[Util.tokenKey];
@@ -63,7 +63,10 @@ class HttpRequest {
     create() {
         let conf = {
             baseURL: Config.baseUrl,
-            timeout: 10000
+            timeout: 10000,
+            headers: {
+                'Content-type': 'application/json'
+            }
         };
         return Axios.create(conf);
     }
@@ -164,10 +167,7 @@ class HttpRequest {
     }
 
     // GET请求实例
-    get(url, data) {
-        if (data) {
-            url += '?' + Util.params(data).join('&');
-        }
+    get(url) {
         let options = {
             url: url,
             method: 'get'
